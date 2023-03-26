@@ -3,6 +3,12 @@
 from pwn import *
 import signal, paramiko
 
+def handler(signum, frame):
+    print("\n[+] Saliendo...")
+    sys.exit(1)
+
+signal.signal(signal.SIGINT, handler)
+
 class SSH:
     def __init__(self, host, port, username, password):
         self.host = host
